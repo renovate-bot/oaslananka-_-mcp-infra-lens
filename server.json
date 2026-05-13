@@ -1,9 +1,9 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.oaslananka-lab/mcp-infra-lens",
+  "name": "io.github.oaslananka/mcp-infra-lens",
   "description": "SSH Linux metrics, baselines, anomaly detection, and plain-English infrastructure explanations.",
   "repository": {
-    "url": "https://github.com/oaslananka-lab/mcp-infra-lens",
+    "url": "https://github.com/oaslananka/mcp-infra-lens",
     "source": "github"
   },
   "version": "1.0.2",
