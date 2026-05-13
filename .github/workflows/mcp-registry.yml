@@ -17,8 +17,8 @@ permissions:
   id-token: write
 
 env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
-  MCP_PUBLISHER_VERSION: "1.7.9"
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+  MCP_PUBLISHER_VERSION: '1.7.9'
 
 concurrency:
   group: mcp-registry-publish-${{ github.ref }}
@@ -26,8 +26,8 @@ concurrency:
 
 jobs:
   publish:
-    if: ${{ github.repository == 'oaslananka-lab/mcp-infra-lens' && (inputs.publish == true || github.event_name == 'release') }}
-    runs-on: ubuntu-24.04
+    if: ${{ github.repository == 'oaslananka/mcp-infra-lens' && (inputs.publish == true || github.event_name == 'release') }}
+    runs-on: [self-hosted, Linux, X64]
     timeout-minutes: 15
     environment: production
     steps:
