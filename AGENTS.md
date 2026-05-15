@@ -1,31 +1,40 @@
 # AGENTS.md
 
-## This repo is a CI/CD mirror
+## This repo is source and CI/CD execution
 
 Source of truth: oaslananka/mcp-infra-lens
-Do NOT push code changes here — this repo is downstream.
-All code must originate from the personal repo.
+GitHub Actions run in this repository.
 
 ## Control-plane
-oaslananka-lab/_ops
+
+oaslananka-ops/_ops
 
 ## Before any PR work
+
 Run diagnostics:
-  gh workflow run .github/workflows/agent-pr-diagnostics.yml \
-    --repo oaslananka-lab/_ops --ref main \
-    -f target_owner=oaslananka-lab \
-    -f target_repo=mcp-infra-lens \
-    -f pr_number={PR_NUMBER}
+
+```sh
+gh workflow run .github/workflows/agent-pr-diagnostics.yml \
+  --repo oaslananka-ops/_ops --ref main \
+  -f target_owner=oaslananka \
+  -f target_repo=mcp-infra-lens \
+  -f pr_number={PR_NUMBER}
+```
 
 ## Before any release
-  gh workflow run .github/workflows/repo-release-plan.yml \
-    --repo oaslananka-lab/_ops --ref main \
-    -f target_owner=oaslananka-lab \
-    -f target_repo=mcp-infra-lens
+
+```sh
+gh workflow run .github/workflows/repo-release-plan.yml \
+  --repo oaslananka-ops/_ops --ref main \
+  -f target_owner=oaslananka \
+  -f target_repo=mcp-infra-lens
+```
 
 ## Merge rule
+
 Squash only. Never merge without clean diagnostics.
 
 ## Operating contract
-https://github.com/oaslananka-lab/_ops/blob/main/docs/agent-operating-contract.md
-https://github.com/oaslananka-lab/_ops/blob/main/docs/architecture.md
+
+https://github.com/oaslananka-ops/_ops/blob/main/docs/agent-operating-contract.md
+https://github.com/oaslananka-ops/_ops/blob/main/docs/architecture.md
